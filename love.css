@@ -1,0 +1,232 @@
+{ margin:0; padding:0; box-sizing:border-box; }
+body {
+    height:100vh;
+    overflow:hidden;
+    font-family:"Poppins",sans-serif;
+    background:#05010a;
+    color:white;
+}
+
+/* Galaxy Sky Layers */
+.sky-layer {
+    position:fixed;
+    width:100%;
+    height:100%;
+    z-index:1;
+}
+
+#stars, #stars2, #stars3 {
+    background-repeat:repeat;
+    background-size:contain;
+}
+
+#stars  { opacity:.6; animation: drift 50s linear infinite; }
+#stars2 { opacity:.3; animation: drift 80s linear infinite; }
+#stars3 { opacity:.15; animation: drift 120s linear infinite; }
+
+@keyframes drift {
+    from { transform:translateY(0); }
+    to { transform:translateY(-300px); }
+}
+
+/* Shooting Stars */
+.shooting-star {
+    position:fixed;
+    width:2px;
+    height:100px;
+    background:white;
+    transform:rotate(45deg);
+    opacity:0;
+    animation: shoot 4s linear infinite;
+    top:-200px;
+}
+@keyframes shoot {
+    0% { opacity:0; transform:translate(-50vw,-50vh) rotate(45deg); }
+    10% { opacity:1; }
+    100% { opacity:0; transform:translate(80vw,80vh) rotate(45deg); }
+}
+
+/* Aurora */
+#aurora {
+    position:fixed;
+    top:0; left:0;
+    width:100%;
+    height:100%;
+    background:radial-gradient(circle at 50% 20%, #5c00ff55, transparent 70%);
+    filter:blur(70px);
+    z-index:1;
+    animation: auroraMove 10s infinite alternate ease-in-out;
+}
+@keyframes auroraMove {
+    from { transform:translateY(-50px); }
+    to { transform:translateY(50px); }
+}
+
+/* Moon */
+#moon {
+    position:fixed;
+    right:70px; top:90px;
+    width:150px; height:150px;
+    border-radius:50%;
+    background:radial-gradient(circle,#fff,#c7bfff);
+    box-shadow:0 0 40px #fff;
+    z-index:2;
+}
+
+/* Fireflies */
+.firefly {
+    position:fixed;
+    width:8px; height:8px;
+    border-radius:50%;
+    background:radial-gradient(#fff,#f0c);
+    animation: float 6s infinite ease-in-out;
+    opacity:.8;
+}
+@keyframes float {
+    0% { transform:translateY(0) translateX(0); }
+    50% { transform:translateY(-30px) translateX(20px); }
+    100% { transform:translateY(0) translateX(0); }
+}
+
+/* Light Beams */
+#beams {
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:radial-gradient(circle,#ff70d050, transparent 70%);
+    filter:blur(100px);
+    z-index:2;
+    animation: pulseGlow 6s infinite;
+}
+@keyframes pulseGlow {
+    from {opacity:.3;}
+    to {opacity:.7;}
+}
+
+/* --------------------------- */
+/* PROPOSAL TEXT + TYPING      */
+/* --------------------------- */
+
+.container {
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    z-index:10;
+    width:90%;
+}
+
+#typing {
+    font-size:2rem;
+    min-height:80px;
+    text-shadow:0 0 10px #ffb0f9;
+}
+
+#question {
+    font-size:4rem;
+    margin-top:20px;
+    opacity:0;
+    transition:2s;
+    text-shadow:0 0 20px pink;
+}
+
+/* --------------------------- */
+/* BUTTONS                     */
+/* --------------------------- */
+
+button {
+    margin:15px;
+    padding:15px 40px;
+    border:none;
+    border-radius:15px;
+    background:#ff0f8a;
+    color:white;
+    font-size:1.7rem;
+    cursor:pointer;
+    box-shadow:0 0 20px #ff59a8;
+    transition:.3s;
+    animation: heartbeat 1.5s infinite;
+}
+button:hover {
+    transform:scale(1.25);
+    background:#ff0072;
+}
+
+@keyframes heartbeat {
+    0% { transform:scale(1); box-shadow:0 0 20px #ff0088; }
+    50% { transform:scale(1.1); box-shadow:0 0 35px #ff33a8; }
+    100% { transform:scale(1); box-shadow:0 0 20px #ff0088; }
+}
+
+/* --------------------------- */
+/* EXPLODING HEART & MESSAGE   */
+/* --------------------------- */
+
+#loveMessage {
+    position:fixed;
+    top:50%; left:90%;
+    transform:translate(-50%,-50%);
+    font-size:3rem;
+    opacity:0;
+    transition:2s;
+    text-shadow:0 0 30px #fff;
+    color:#ff70d4;
+    z-index:20;
+}
+
+#bigHeart {
+    position:fixed;
+    width:0; height:0;
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    background:red;
+    clip-path:path("M 75 30 A 20 20 0 0 1 125 30 Q 125 60 75 90 Q 25 60 25 30 A 20 20 0 0 1 75 30 Z");
+    transition:4s;
+    z-index:25;
+}
+
+/* --------------------------- */
+/* ROSE PETALS + HEART FLOATS  */
+/* --------------------------- */
+
+.petal, .heartFloat, .spark {
+    position:fixed;
+    z-index:12;
+    animation-duration:6s;
+    animation-iteration-count:infinite;
+    opacity:.9;
+}
+
+@keyframes fall {
+    to { transform:translateY(110vh) rotate(360deg); opacity:0; }
+}
+
+@keyframes rise {
+    to { transform:translateY(-120vh); opacity:0;}
+}
+
+
+#fireworks {
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    pointer-events:none;
+    z-index:30;
+}
+
+
+#letter {
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.95);
+    color:#ffcfe9;
+    font-family:"Dancing Script",cursive;
+    padding:60px;
+    font-size:2.3rem;
+    line-height:1.6;
+    display:none;
+    z-index:40;
+    text-align:center;
+}
+
