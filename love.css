@@ -223,11 +223,12 @@ button:hover {
     color:#ffcfe9;
     font-family:"Dancing Script",cursive;
     padding:60px;
-    font-size:1rem;
+    font-size:1%;
     line-height:1.6;
     display:none;
     z-index:40;
     text-align:center;
 }
+
 
 
